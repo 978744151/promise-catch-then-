@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+* new出一个promise实例
+* catch过后可以继续.then
+* Promise.done() 它的主要作用是在回调链的尾端捕捉前面没有被 .catch() 捕捉到的错误
+* finally   一定会执行的函数
+ */
+function add(a ,b){
+    return new Promise ( (resolve, reject) => {
+
+        if ( a + b > 10 ) {
+            resolve(a) // pending ——> resolved 参数将传递给对应的回调方法
+        } else {
+            console.log("err");
+            reject(err) // pending ——> rejectd
+        }
+    })
+}
+add(2,7).then(function res(){
+    console.log(10)
+}).then(function res(){
+    console.log(11)
+}).catch(res=>{
+    console.log('err')
+}).then(function res(){
+    console.log(12)
+}).finally(res=>{
+    console.log("finally");
+})
+
+// var p1 = function(){
+//     return 10
+// }
+// var p2 = function(){
+//     return 12
+// }
+// var pro = Promise.all( [p1, p2] )
+// console.log(pro)
+
+
+
+
+</script>
+</body>
+</html>
